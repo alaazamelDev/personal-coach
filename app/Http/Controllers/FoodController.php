@@ -145,12 +145,6 @@ class FoodController extends Controller
     public function isUpdated(Request $request): JsonResponse
     {
 
-        if (!$request->get('update_date')) {
-            return response()->json([
-                'is_updated' => false,
-            ]);
-        }
-
         // Read Log File
         $jsonLog = file_get_contents(storage_path() . '/log.json');
         $logData = json_decode($jsonLog, true);
